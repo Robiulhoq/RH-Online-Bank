@@ -1,0 +1,26 @@
+body{
+    padding: 100px;
+}
+.box-shawo{
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px gray;
+}
+#trangation-aria{
+    display: none;
+}
+.deposit{
+    background-color: slateblue;
+}
+.widrow{
+    background-color: salmon;
+}
+.blance{
+    background-color: orange;
+}
+.states{
+    margin: 0px 20px;
+    padding: 20px;
+    border-radius: 10px;
+}

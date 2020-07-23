@@ -8,6 +8,106 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>wellcome to RH-Online-Bank</h1>
+    <div id="welcomearia">
+        <h1 class="text-center">Wellcome To RH-Online-Bank</h1>
+        <div class="box-shawo">
+            <h4>Login</h4>
+            <input  type="text"  class="form-control" placeholder="Enter your email">
+            <br>
+            <input class="form-control" type="password" placeholder="Enter your password">
+            <br>
+            <button id="login" type="button" class="btn btn-success">Log in</button>
+        </div>
+    </div>
+    <div id="trangation-aria">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="deposit states">
+                    <h5>Deposit</h5>
+                    <h2>$ <span id="currentDeposit">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="widrow states">
+                    <h5>widrow</h5>
+                    <h2>$ <span id="currentwidrow">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blance states">
+                    <h5>Blance</h5>
+                    <h2>$ <span id="currentBlance">00</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box-shawo">
+                    <h4>Deposit</h4>
+                <input id="depositAmound" type="text" class="form-control" placeholder="$ amount you went to Deposit">
+                <br>
+                <button id="btndeposit" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box-shawo">
+                    <h4>Widrow</h4>
+                <input id="widrowamount" type="text" class="form-control" placeholder="$ amount you went to widrow">
+                <br>
+                <button id="btnwidrow" class="btn btn-success">Widrow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // login button
+        const loginbutton =document.getElementById('login');
+        loginbutton.addEventListener("click", function(){
+            
+            const displaynone = document.getElementById('welcomearia');
+            displaynone.style.display = "none";
+            const trangation = document.getElementById('trangation-aria');
+            trangation.style.display = "block";
+        })
+        // deposit button
+        const depositbutton = document.getElementById('btndeposit');
+        depositbutton.addEventListener('click', function(){
+            
+            const dipositnumber = buttonshortcut('depositAmound');
+            
+            // document.getElementById('depositAmound').value;
+            // const dipositnumber = parseFloat(dipositamound);
+
+        
+            allrounder("currentDeposit", dipositnumber);
+
+            allrounder("currentBlance" ,dipositnumber);
+
+            document.getElementById('depositAmound').value = "";
+        })
+        // button work
+        function allrounder (id,dipositnumber){
+            const currentBlance = document.getElementById(id).innerText;
+            const currentblancenumber = parseFloat(currentBlance);
+            const totalblance = currentblancenumber + dipositnumber;
+            document.getElementById(id,dipositnumber).innerText = totalblance;
+        }
+        // button shortcut 
+        function buttonshortcut (id){
+            const widrowAmount = document.getElementById(id).value;
+          const widrowconnumver = parseFloat(widrowAmount);
+          return widrowconnumver;
+        }
+
+        // widrow button
+        const widrowbutton = document.getElementById('btnwidrow');
+        widrowbutton.addEventListener('click', function(){
+           const widrowconnumver = buttonshortcut('widrowamount');
+
+           allrounder("currentwidrow", widrowconnumver);
+           allrounder("currentBlance" ,-1 * widrowconnumver);
+           document.getElementById('widrowamount').value = "";
+        })
+    </script>
 </body>
 </html>
